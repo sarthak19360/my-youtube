@@ -15,6 +15,7 @@ import { BiSolidLike } from "react-icons/bi";
 import { CiStreamOn } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import SideBarButton from "./SideBarButton";
 
 const SideBar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -23,72 +24,47 @@ const SideBar = () => {
     <div className="p-4 w-3.5/12 shadow-lg">
       <div>
         {/* Normal Icons */}
-        <div className="flex px-2 py-1">
-          <Link to="/" className="flex">
-            <MdHomeFilled className="text-2xl mr-4" />
-            <div className="text-base font-semibold">Home</div>
-          </Link>
-        </div>
-        <div className="flex px-2 py-1">
-          <SiYoutubeshorts className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Shorts</div>
-        </div>
-        <div className="flex px-2 py-1">
-          <MdSubscriptions className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Subscriptions</div>
-        </div>
+        <SideBarButton url="/" SideIcon={MdHomeFilled} text="Home" />
+        <SideBarButton url="/" SideIcon={SiYoutubeshorts} text="Shorts" />
+        <SideBarButton
+          url="/"
+          SideIcon={MdSubscriptions}
+          text="Subscriptions"
+        />
       </div>
       <div className="my-3 border-t-2 border-solid border-gray-300 w-40">
         {/* You Icons */}
         <div className="text-lg font-normal px-3 py-2 flex">
           You <MdKeyboardArrowRight className="text-2xl mx-2 my-auto" />
         </div>
-        <div className="flex px-2 py-1">
-          <PiUserSquareFill className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Your Channel</div>
-        </div>
-        <div className="flex px-2 py-1">
-          <FaHistory className="text-2xl mr-4" />
-          <div className="text-base font-semibold">History</div>
-        </div>
-        <div className="flex px-2 py-1">
-          <MdOndemandVideo className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Your Videos</div>
-        </div>
-        <div className="flex px-2 py-1">
-          <MdOutlineWatchLater className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Watch Later</div>
-        </div>
-        <div className="flex px-2 py-1">
-          <BiSolidLike className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Liked Videos</div>
-        </div>
+        <SideBarButton
+          url="/"
+          SideIcon={PiUserSquareFill}
+          text="Your Channel"
+        />
+        <SideBarButton url="/" SideIcon={FaHistory} text="History" />
+        <SideBarButton url="/" SideIcon={MdOndemandVideo} text="Your Videos" />
+        <SideBarButton
+          url="/"
+          SideIcon={MdOutlineWatchLater}
+          text="Watch Later"
+        />
+        <SideBarButton url="/" SideIcon={BiSolidLike} text="Liked Videos" />
       </div>
       <div className="my-3 border-t-2 border-solid border-gray-300 w-40">
         {/* Explore Icons */}
         <div className="text-lg font-normal px-3 py-2 flex">
           Explore <MdKeyboardArrowRight className="text-2xl mx-2 my-auto" />
         </div>
-        <div className="flex px-2 py-1">
-          <FaFire className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Trending</div>
-        </div>
-        <div className="flex px-2 py-1">
-          <MdOutlineShoppingBag className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Shopping</div>
-        </div>
-        <div className="flex px-2 py-1">
-          <MdMusicNote className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Music</div>
-        </div>
-        <div className="flex px-2 py-1">
-          <PiFilmSlateBold className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Films</div>
-        </div>
-        <div className="flex px-2 py-1">
-          <CiStreamOn className="text-2xl mr-4" />
-          <div className="text-base font-semibold">Live</div>
-        </div>
+        <SideBarButton url="/" SideIcon={FaFire} text="Trending" />
+        <SideBarButton
+          url="/"
+          SideIcon={MdOutlineShoppingBag}
+          text="Shopping"
+        />
+        <SideBarButton url="/" SideIcon={MdMusicNote} text="Music" />
+        <SideBarButton url="/" SideIcon={PiFilmSlateBold} text="Films" />
+        <SideBarButton url="/" SideIcon={CiStreamOn} text="Live" />
       </div>
     </div>
   );
