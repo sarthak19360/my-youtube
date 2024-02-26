@@ -5,7 +5,7 @@ import { toggleMenu } from "../utils/appSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { YOUTUBE_SEARCH_API } from "../utils/constant";
+import { YOUTUBE_SUGGESTION_API } from "../utils/constant";
 import InputSuggestion from "./InputSuggestion";
 import { cacheResults } from "../utils/searchSlice";
 
@@ -19,8 +19,7 @@ const Header = () => {
     dispath(toggleMenu());
   };
   const fetchSuggestions = async () => {
-    console.log("API Call - " + searchQuery);
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const data = await fetch(YOUTUBE_SUGGESTION_API + searchQuery);
     const json = await data.json();
     setSuggestions(json[1]);
     dispath(
@@ -29,6 +28,7 @@ const Header = () => {
       })
     );
   };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (searchCache[searchQuery]) {
@@ -65,7 +65,9 @@ const Header = () => {
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setShowSuggestions(false)}
           />
-          <FaMagnifyingGlass className="h-10 w-16 p-3 bg-gray-300 rounded-r-full" />
+          <Link to={"/searchResults?q=" + searchQuery}>
+            <FaMagnifyingGlass className="h-10 w-16 p-3 bg-gray-300 rounded-r-full" />
+          </Link>
         </div>
         {showSuggestions && (
           <div className="absolute bg-white w-[560px] px-4 py-2 rounded-xl shadow-xl">
