@@ -1,8 +1,13 @@
-# React + Vite
+# ME-TUBE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## This is a frontend project that uses youtube videos api for different purposes like
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### - Fetching popular videos
+### - Fetching a particular video
+### - Fetching comments under a video
+### - Searching videos based on keywords
+
+## Implemented **DEBOUNCING** in search functionality
+
+## Uses **API- Polling** for *LIVE CHAT* feature
